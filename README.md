@@ -23,15 +23,18 @@ Create an angular app and inject pretty-checkable. That's about it.
 ##Usage
 
 **checkbox**
+```html
 <pretty-checkbox ng-model="myModel.one" label="'This is one'"></pretty-checkbox>
 <pretty-checkbox ng-model="myModel.two" label="'This is two'"></pretty-checkbox>
 <pretty-checkbox ng-model="myModel.three" label="'This is three'"></pretty-checkbox>
+```
 
 **radio**
+```html
 <pretty-radio value="'one'" ng-model="myModel.radio" label="'This is one'"></pretty-radio>
 <pretty-radio value="'two'" ng-model="myModel.radio" label="'This is two'"></pretty-radio>
 <pretty-radio value="'three'" ng-model="myModel.radio" label="'This is three'"></pretty-radio>
-
+```
 
 ##Configuration
 
