@@ -20,7 +20,7 @@ Download and include angular-pretty-checkable.js and pretty-checkable.css
 Create an angular app and inject pretty-checkable. That's about it.
 
 **bower**
-```
+```bash
 bower install angular-pretty-checkable
 ```
 
