@@ -1,6 +1,6 @@
 {
     "name": "angular-pretty-checkable",
-    "main": "dist/pretty-checkable.js",
+    "main": ["src/angular-pretty-checkable.js","dist/pretty-checkable.css","images/sprites-sfa68604977.png"]
     "ignore": [
         "source",
         "spec",

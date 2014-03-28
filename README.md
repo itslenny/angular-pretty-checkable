@@ -15,9 +15,13 @@ Code based on [angular-ui](http://angular-ui.github.io/bootstrap/) buttons direc
 
 Dependencies: Angular
 
-Include angular-pretty-checkable.js and pretty-checkable.css
+Download and include angular-pretty-checkable.js and pretty-checkable.css
 
 Create an angular app and inject pretty-checkable. That's about it.
+
+**bower**
+
+bower install angular-pretty-checkable
 
 
 ##Usage
