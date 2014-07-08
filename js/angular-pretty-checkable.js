@@ -28,20 +28,23 @@ angular.module('pretty-checkable', [])
 
         //init control values
         element.addClass('prettyradio');
-        //set label text to label if available otherwise default to value
-        var labelText = scope.$eval(attrs.label ? attrs.label : attrs.value);
-        var label = angular.element('<label>'+labelText+'</label>');
-        //add label before or after depending on label-left value 
-        if(attrs.labelLeft){
-          element.prepend(label);
-        }else{
-          element.append(label);
+        if(attrs.label!=='false'){        
+            //set label text to label if available otherwise default to value
+            var labelText = scope.$eval(attrs.label ? attrs.label : attrs.value);
+            var label = angular.element('<label>'+labelText+'</label>');
+        
+            //add label before or after depending on label-left value 
+            if(attrs.labelLeft){
+              element.prepend(label);
+            }else{
+              element.append(label);
+            }
         }
 
         //model -> UI
         ngModelCtrl.$render = function () {
           element.find("a").toggleClass(buttonsCtrl.activeClass, angular.equals(ngModelCtrl.$modelValue, scope.$eval(attrs.value)));
-          element.find("a").toggleClass(buttonsCtrl.disabledClass, attrs.disabled ? true : false);
+          element.find("a").toggleClass(buttonsCtrl.disabledClass, (attrs.disabled || attrs.ngDisabled) ? true : false);
         };
 
         //ui->model
@@ -54,8 +57,9 @@ angular.module('pretty-checkable', [])
           }
         });
       },
-      template:'<div><a></a></div>',
-      replace: true
+      template:'<div ng-transclude><a></a></div>',
+      replace: true,
+      transclude: true
     };
   })
 
@@ -71,13 +75,15 @@ angular.module('pretty-checkable', [])
         //init control values
         element.addClass('prettycheckbox');
         //set label text to label if available otherwise default to value
-        var labelText = scope.$eval(attrs.label ? attrs.label : attrs.value);
-        var label = angular.element('<label>'+labelText+'</label>');
-        //add label before or after depending on label-left value 
-        if(attrs.labelLeft){
-          element.prepend(label);
-        }else{
-          element.append(label);
+        if(attrs.label!=='false'){
+            var labelText = scope.$eval(attrs.label ? attrs.label : attrs.value);
+            var label = angular.element('<label>'+labelText+'</label>');
+            //add label before or after depending on label-left value 
+            if(attrs.labelLeft){
+              element.prepend(label);
+            }else{
+              element.append(label);
+            }
         }
 
         function getTrueValue() {
@@ -92,7 +98,7 @@ angular.module('pretty-checkable', [])
         //model -> UI
         ngModelCtrl.$render = function () {
           element.find('a').toggleClass(buttonsCtrl.activeClass, angular.equals(ngModelCtrl.$modelValue, getTrueValue()));
-          element.find("a").toggleClass(buttonsCtrl.disabledClass, attrs.disabled ? true : false);
+          element.find("a").toggleClass(buttonsCtrl.disabledClass, (attrs.disabled || attrs.ngDisabled) ? true : false);
         };
 
         //ui->model
@@ -106,8 +112,9 @@ angular.module('pretty-checkable', [])
         });
 
       },
-      template:'<div><a></a></div>',
-      replace: true
+      template:'<div ng-transclude><a></a></div>',
+      replace: true,
+      transclude: true
 
     };
   });

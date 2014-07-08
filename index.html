@@ -3,10 +3,10 @@
   <head>
     <title>Angular Pretty Checkable</title>
     <link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
-    <link type="text/css" rel="stylesheet" href="css/pretty-checkable.css">
+    <link type="text/css" rel="stylesheet" href="../dist/pretty-checkable.css">
 
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.1/angular.min.js"></script>
-    <script src="js/angular-pretty-checkable.js"></script>
+    <script src="../src/angular-pretty-checkable.js"></script>
     <script src="js/app.js"></script>
   </head>
   <body>
@@ -61,7 +61,16 @@
             <h4>Check / radio with Label Left</h4>
             <pretty-radio class="clearfix" value="'one'" label-left="true" ng-model="myModel.radio" label="'This is one'"></pretty-radio>
             <pretty-checkbox class="clearfix" label-left="true" ng-model="myModel.two" label="'This one too'"></pretty-checkbox>
-          </div>          
+          </div>    
+          <div class="well">
+            <h4>Custom HTML labels</h4>
+            <pretty-checkbox class="clearfix" ng-model="myModel.html1" label="false"><label>this is my <i>label</i> with <span style="color: red;">html</span></label></pretty-checkbox>
+            <pretty-radio class="clearfix" value="0" ng-model="myModel.html2" label="false"><label>this is my <span style="font-size: 1.2em;color: green;">other label</span> with <span style="color: blue;">html</span></label></pretty-radio>
+            <pretty-radio class="clearfix" value="1" ng-model="myModel.html2" label="false"><label style="background: #555555; color: white; padding: 2px 4px;">this is my <span style="font-size: 1.2em;color: yellow;">third label</span> with <span style="color: orange;">html</span></label></pretty-radio>            
+            
+            <br><br>
+            Values: {{myModel.html1}}, {{myModel.html2}}
+          </div>      
         </div>
       </div>
     </div>        
