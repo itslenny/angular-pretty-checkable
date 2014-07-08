@@ -4,8 +4,7 @@
     <title>Angular Pretty Checkable</title>
     <link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
     <link type="text/css" rel="stylesheet" href="../dist/pretty-checkable.css">
-
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.1/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular.min.js"></script>
     <script src="../src/angular-pretty-checkable.js"></script>
     <script src="js/app.js"></script>
   </head>
@@ -21,6 +20,13 @@
           View source on this page to see the various options available (also available in the github repo).
           <br><br>
           For more information and full documents see <a href="https://github.com/itslenny/angular-pretty-checkable">Github</a>
+          
+          <pretty-checkbox
+  ng-model="data.formValues.field_new_terms_of_use"
+  ng-required="true"
+  value="1"
+  label="false"><label style="font-size: .9em; width:100%;" class="checkbox-label"><div style=" margin-top:7px;" class="check-label-text">I consent to enter the Read for My School competition and accept the <a target="_blank" href="/terms">Terms of Use</a> <span class="form-required" title="This field is required.">*</span></div></label></pretty-checkbox>
+
         </div>
         <div class="col-md-4 col-sm-12">
           <div class="well">
