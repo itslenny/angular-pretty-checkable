@@ -42,7 +42,9 @@ bower install angular-pretty-checkable
 
 **html label**
 ```html
-<pretty-checkbox ng-model="myModel.one" label="false"><label>My <i>custom label</i> goes here</label></pretty-checkbox>
+<pretty-checkbox ng-model="myModel.one" label="false">
+    <label>My <i>custom label</i> goes here</label>
+</pretty-checkbox>
 ```
 
 ##Configuration
