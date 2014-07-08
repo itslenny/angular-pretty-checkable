@@ -20,7 +20,7 @@
           View source on this page to see the various options available (also available in the github repo).
           <br><br>
           For more information and full documents see <a href="https://github.com/itslenny/angular-pretty-checkable">Github</a>
-          
+   
         </div>
         <div class="col-md-4 col-sm-12">
           <div class="well">
@@ -70,6 +70,15 @@
             
             <br><br>
             Values: {{myModel.html1}}, {{myModel.html2}}
+          </div>  
+
+          <div class="well">
+            <h4>ng-required</h4>
+            <form name="termsForm">
+                <pretty-checkbox class="clearfix" ng-model="myModel.terms" ng-required="true" value="'Yes'" label="'Agree to terms?'"></pretty-checkbox>
+            </form>
+            <br><br>
+            Values: {{myModel.terms}} &mdash; Form Valid: {{termsForm.$valid}}
           </div>      
         </div>
       </div>

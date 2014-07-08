@@ -115,7 +115,9 @@ angular.module('pretty-checkable', [])
         element.bind(buttonsCtrl.toggleEvent, function () {
           if(!element.find('a').hasClass(buttonsCtrl.disabledClass)) {
             scope.$apply(function () {
-              ngModelCtrl.$setViewValue(element.find('a').hasClass(buttonsCtrl.activeClass) ? false : getTrueValue());
+              var wasChecked = element.find('a').hasClass(buttonsCtrl.activeClass);
+              ngModelCtrl.$setViewValue(wasChecked ? false : getTrueValue());
+              ngModelCtrl.$setValidity('email', !wasChecked);
               ngModelCtrl.$render();
             });
           }
