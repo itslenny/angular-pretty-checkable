@@ -26,8 +26,13 @@ angular.module('pretty-checkable', [])
       link: function (scope, element, attrs, ctrls) {
         var buttonsCtrl = ctrls[0], ngModelCtrl = ctrls[1];
 
-        //init control values
+        //set element class
         element.addClass('prettyradio');
+        
+        //add anchor
+        element.prepend(angular.element('<a></a>'));        
+        
+        //add label if we need one
         if(attrs.label!=='false'){        
             //set label text to label if available otherwise default to value
             var labelText = scope.$eval(attrs.label ? attrs.label : attrs.value);
@@ -57,7 +62,7 @@ angular.module('pretty-checkable', [])
           }
         });
       },
-      template:'<div ng-transclude><a></a></div>',
+      template:'<div ng-transclude></div>',
       replace: true,
       transclude: true
     };
@@ -72,10 +77,15 @@ angular.module('pretty-checkable', [])
       link: function (scope, element, attrs, ctrls) {
         var buttonsCtrl = ctrls[0], ngModelCtrl = ctrls[1];
 
-        //init control values
+        //set element class
         element.addClass('prettycheckbox');
-        //set label text to label if available otherwise default to value
+        
+        //add anchor
+        element.prepend(angular.element('<a></a>'));
+
+        //add label if we need one
         if(attrs.label!=='false'){
+            //set label text to label if available otherwise default to value        
             var labelText = scope.$eval(attrs.label ? attrs.label : attrs.value);
             var label = angular.element('<label>'+labelText+'</label>');
             //add label before or after depending on label-left value 
@@ -112,7 +122,7 @@ angular.module('pretty-checkable', [])
         });
 
       },
-      template:'<div ng-transclude><a></a></div>',
+      template:'<div ng-transclude></div>',
       replace: true,
       transclude: true
 
