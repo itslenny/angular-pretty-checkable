@@ -75,10 +75,13 @@
           <div class="well">
             <h4>ng-required</h4>
             <form name="termsForm">
-                <pretty-checkbox class="clearfix" ng-model="myModel.terms" ng-required="true" value="'Yes'" label="'Agree to terms?'"></pretty-checkbox>
+                <pretty-checkbox class="clearfix" ng-model="myModel.terms" name="tcheck" ng-required="true" value="'Yes'" label="'Agree to terms?'"></pretty-checkbox>
             </form>
             <br><br>
-            Values: {{myModel.terms}} &mdash; Form Valid: {{termsForm.$valid}}
+            Value: {{myModel.terms}}<br>
+            Form Valid: {{termsForm.$valid}}<br>
+            Field Pristine: {{termsForm.tcheck.$pristine}}<br>
+            Field Valid: {{termsForm.tcheck.$valid}}
           </div>      
         </div>
       </div>
