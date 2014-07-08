@@ -40,6 +40,11 @@ bower install angular-pretty-checkable
 <pretty-radio value="'three'" ng-model="myModel.radio" label="'This is three'"></pretty-radio>
 ```
 
+**html label**
+```html
+<pretty-checkbox ng-model="myModel.one" label="false"><label>My <i>custom label</i> goes here</label></pretty-checkbox>
+```
+
 ##Configuration
 
 **States**
@@ -48,31 +53,33 @@ bower install angular-pretty-checkable
 
 **Options**
 <table>
+  <thead>
+    <tr>
+      <th align="left" valign="top">Name</td>
+      <th align="left" valign="top">Values</td>
+      <th align="left" valign="top">Description</td>
+    </tr>
+  </thead>
   <tbody>
     <tr>
-      <td>Name</td>
-      <td>Values</td>
-      <td>Description</td>
+      <td align="left" valign="top">value</td>
+      <td align="left" valign="top">variable or single quoted text</td>
+      <td align="left" valign="top">Required for radio<br>Used as true value for checkbox</td>
     </tr>
     <tr>
-      <td>value</td>
-      <td>variable or single quoted text</td>
-      <td>Required for radio<br>Used as true value for checkbox</td>
+      <td align="left" valign="top">label</td>
+      <td align="left" valign="top">variable or single quoted text</td>
+      <td align="left" valign="top">Optional. Defaults to value if ommited.<br><br>Set to false remove label.</td>
     </tr>
     <tr>
-      <td>label</td>
-      <td>variable or single quoted text</td>
-      <td>Optional. Defaults to value if ommited.</td>
+      <td align="left" valign="top">disabled</td>
+      <td align="left" valign="top">boolean</td>
+      <td align="left" valign="top">Disables checkbox if set to true.</td>
     </tr>
     <tr>
-      <td>disabled</td>
-      <td>boolean</td>
-      <td>Disables checkbox if set to true.</td>
-    </tr>
-    <tr>
-      <td>label-left</td>
-      <td>boolean</td>
-      <td>Puts the label before (left of) the control</td>
+      <td align="left" valign="top">label-left</td>
+      <td align="left" valign="top">boolean</td>
+      <td align="left" valign="top">Puts the label before (left of) the control</td>
     </tr>
   </tbody>
 </table>
