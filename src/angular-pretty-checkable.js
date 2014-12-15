@@ -76,12 +76,20 @@ angular.module('pretty-checkable', [])
       controller: 'PrettyCheckableController',
       link: function (scope, element, attrs, ctrls) {
         var buttonsCtrl = ctrls[0], ngModelCtrl = ctrls[1];
+        var isRequired = false;
 
         //set element class
         element.addClass('prettycheckbox');
         
         //add anchor
         element.prepend(angular.element('<a></a>'));
+
+        // listen to changes on required attribute
+        // support for required and ngRequired
+        attrs.$observe('required', function(value) {
+          isRequired = !!value;
+          validate(isChecked()); // revalidate when attribute "required" changed
+        });
 
         //add label if we need one
         if(attrs.label!=='false'){
@@ -105,6 +113,14 @@ angular.module('pretty-checkable', [])
           return angular.isDefined(val) ? val : defaultValue;
         }
 
+        function validate(isChecked) {
+          ngModelCtrl.$setValidity('require', (isChecked || !isRequired)); // should be checked or not required
+        }
+
+        function isChecked() {
+          return element.find('a').hasClass(buttonsCtrl.activeClass);
+        }
+
         //model -> UI
         ngModelCtrl.$render = function () {
           element.find('a').toggleClass(buttonsCtrl.activeClass, angular.equals(ngModelCtrl.$modelValue, getTrueValue()));
@@ -115,9 +131,9 @@ angular.module('pretty-checkable', [])
         element.bind(buttonsCtrl.toggleEvent, function () {
           if(!element.find('a').hasClass(buttonsCtrl.disabledClass)) {
             scope.$apply(function () {
-              var wasChecked = element.find('a').hasClass(buttonsCtrl.activeClass);
+              var wasChecked = isChecked();
               ngModelCtrl.$setViewValue(wasChecked ? false : getTrueValue());
-              ngModelCtrl.$setValidity('email', !wasChecked);
+              validate(!wasChecked);
               ngModelCtrl.$render();
             });
           }
