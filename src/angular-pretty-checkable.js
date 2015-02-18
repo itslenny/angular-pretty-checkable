@@ -48,8 +48,10 @@ angular.module('pretty-checkable', [])
 
         //model -> UI
         ngModelCtrl.$render = function () {
-          element.find("a").toggleClass(buttonsCtrl.activeClass, angular.equals(ngModelCtrl.$modelValue, scope.$eval(attrs.value)));
-          element.find("a").toggleClass(buttonsCtrl.disabledClass, (attrs.disabled || attrs.ngDisabled) ? true : false);
+          var disabledAttr = (attrs.disabled === 'true' || attrs.disabled === 'false') ? attrs.disabled : scope.$eval(attrs.disabled);
+          var ngDisabledAttr = (attrs.ngDisabled === 'true' || attrs.ngDisabled === 'false') ? attrs.ngDisabled : scope.$eval(attrs.ngDisabled);
+          element.find('a').toggleClass(buttonsCtrl.activeClass, angular.equals(ngModelCtrl.$modelValue, scope.$eval(attrs.value)));
+          element.find('a').toggleClass(buttonsCtrl.disabledClass, (disabledAttr || ngDisabledAttr) ? true : false);
         };
 
         //ui->model
@@ -123,8 +125,10 @@ angular.module('pretty-checkable', [])
 
         //model -> UI
         ngModelCtrl.$render = function () {
+          var disabledAttr = (attrs.disabled === 'true' || attrs.disabled === 'false') ? attrs.disabled : scope.$eval(attrs.disabled);
+          var ngDisabledAttr = (attrs.ngDisabled === 'true' || attrs.ngDisabled === 'false') ? attrs.ngDisabled : scope.$eval(attrs.ngDisabled);
           element.find('a').toggleClass(buttonsCtrl.activeClass, angular.equals(ngModelCtrl.$modelValue, getTrueValue()));
-          element.find("a").toggleClass(buttonsCtrl.disabledClass, (attrs.disabled || attrs.ngDisabled) ? true : false);
+          element.find('a').toggleClass(buttonsCtrl.disabledClass, (disabledAttr || ngDisabledAttr) ? true : false);
         };
 
         //ui->model
