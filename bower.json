@@ -1,5 +1,5 @@
 {
-    "name": "angular-pretty-checkable-disable-model-value",
+    "name": "angular-pretty-checkable",
     "main": [
         "src/angular-pretty-checkable.js",
         "dist/pretty-checkable.css",
