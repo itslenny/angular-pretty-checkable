@@ -166,15 +166,10 @@ angular.module('pretty-checkable', [])
 
         //model -> UI
         ngModelCtrl.$render = function () {
-<<<<<<< HEAD
           var disabledAttr = (attrs.disabled === 'true' || attrs.disabled === 'false') ? attrs.disabled : scope.$eval(attrs.disabled);
           var ngDisabledAttr = (attrs.ngDisabled === 'true' || attrs.ngDisabled === 'false') ? attrs.ngDisabled : scope.$eval(attrs.ngDisabled);
           element.find('a').toggleClass(buttonsCtrl.activeClass, angular.equals(ngModelCtrl.$modelValue, getTrueValue()));
           element.find('a').toggleClass(buttonsCtrl.disabledClass, (disabledAttr || ngDisabledAttr) ? true : false);
-=======
-          element.find('a').toggleClass(buttonsCtrl.activeClass, modelIsChecked(getTrueValue()))
-            .toggleClass(buttonsCtrl.disabledClass, (attrs.disabled || attrs.ngDisabled) ? true : false);
->>>>>>> a34b43225e0d0deb401f8bdf3c8482bc98b923ee
         };
 
         //ui->model
