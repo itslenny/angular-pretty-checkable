@@ -79,6 +79,7 @@ angular.module('pretty-checkable', [])
       link: function (scope, element, attrs, ctrls) {
         var buttonsCtrl = ctrls[0], ngModelCtrl = ctrls[1];
         var isRequired = false;
+        var isMultiple = false;
 
         //set element class
         element.addClass('prettycheckbox');
@@ -92,6 +93,11 @@ angular.module('pretty-checkable', [])
           isRequired = !!value;
           validate(isChecked()); // revalidate when attribute "required" changed
         });
+
+        // multiple mode?
+        if(angular.isDefined(attrs.multiple)) {
+          isMultiple = true;
+        }
 
         //add label if we need one
         if(attrs.label!=='false'){
@@ -120,7 +126,42 @@ angular.module('pretty-checkable', [])
         }
 
         function isChecked() {
-          return element.find('a').hasClass(buttonsCtrl.activeClass);
+        	return element.find('a').hasClass(buttonsCtrl.activeClass);
+        }
+
+        function modelIsArray() {
+          return ngModelCtrl.$modelValue instanceof Array;
+        }
+
+        function modelIsChecked(trueValue) {
+          if(modelIsArray()) {
+            return (ngModelCtrl.$modelValue.indexOf(trueValue) > -1);
+          }
+          return angular.equals(ngModelCtrl.$modelValue, trueValue);
+        }
+
+        function updateViewValue(value, remove) {
+          var model = ngModelCtrl.$modelValue;
+
+          if(isMultiple) {
+            // do we have to create a new array?
+            if(!modelIsArray()) { 
+              model = [];
+            }
+
+            var index = model.indexOf(value); 
+
+            if(remove && index > -1) { 
+              model.splice(index, 1);
+            } else if (!remove && index === -1) {
+              model.push(value);
+            }
+          } else {
+            model = remove ? false : value;
+          }
+
+          // update view value
+          ngModelCtrl.$setViewValue(model); 
         }
 
         //model -> UI
@@ -136,7 +177,7 @@ angular.module('pretty-checkable', [])
           if(!element.find('a').hasClass(buttonsCtrl.disabledClass)) {
             scope.$apply(function () {
               var wasChecked = isChecked();
-              ngModelCtrl.$setViewValue(wasChecked ? false : getTrueValue());
+              updateViewValue(getTrueValue(), wasChecked);
               validate(!wasChecked);
               ngModelCtrl.$render();
             });
