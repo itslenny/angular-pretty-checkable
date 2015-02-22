@@ -1,7 +1,8 @@
 {
     "name": "angular-pretty-checkable",
     "main": [
-        "src/angular-pretty-checkable.js",
+        "dist/angular-pretty-checkable.min.js",
+        "dist/angular-pretty-checkable.min.js.map",
         "dist/pretty-checkable.css",
         "images/sprites-sfa68604977.png"
     ],
