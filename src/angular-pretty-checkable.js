@@ -163,11 +163,15 @@ angular.module('pretty-checkable', [])
           var model = ngModelCtrl.$modelValue;
 
           if(isMultiple) {
-            // do we have to create a new array?
-            if(!modelIsArray()) { 
-              model = [];
+            // we have to create a new array, otherwise angular can't detect a model change
+            var newModel = [];
+
+            // copy data from existing model
+            if(modelIsArray()) {
+              angular.copy(model, newModel);
             }
 
+            model = newModel;
             var index = model.indexOf(value); 
 
             if(remove && index > -1) { 
