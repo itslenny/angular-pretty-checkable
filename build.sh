@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #creates minified version and source map
-#requires uglifyjs -- npm install uglifyjs -g
+#requires uglifyjs -- npm install uglify-js -g
 
 PROJECT_NAME=angular-pretty-checkable
 
