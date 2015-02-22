@@ -1,4 +1,11 @@
-'use strict';
+/* @preserve
+ *
+ * angular-pretty-checkable
+ * https://github.com/itslenny/angular-bootstrap-file-field
+ *
+ * Version: 0.1.6 - 02/21/2015
+ * License: MIT
+ */
 
 //init module
 angular.module('pretty-checkable', [])
@@ -45,6 +52,12 @@ angular.module('pretty-checkable', [])
               element.append(label);
             }
         }
+
+        // listen to changes on disabled attribute
+        // support for disabled and ngDisabled
+        attrs.$observe('disabled', function(value) {
+          ngModelCtrl.$render();
+        });        
 
         //model -> UI
         ngModelCtrl.$render = function () {
@@ -94,6 +107,12 @@ angular.module('pretty-checkable', [])
           validate(isChecked()); // revalidate when attribute "required" changed
         });
 
+        // listen to changes on disabled attribute
+        // support for disabled and ngDisabled
+        attrs.$observe('disabled', function(value) {
+          ngModelCtrl.$render();
+        });
+
         // multiple mode?
         if(angular.isDefined(attrs.multiple)) {
           isMultiple = true;
@@ -130,7 +149,7 @@ angular.module('pretty-checkable', [])
         }
 
         function modelIsArray() {
-          return ngModelCtrl.$modelValue instanceof Array;
+          return angular.isArray(ngModelCtrl.$modelValue);
         }
 
         function modelIsChecked(trueValue) {
@@ -168,7 +187,8 @@ angular.module('pretty-checkable', [])
         ngModelCtrl.$render = function () {
           var disabledAttr = (attrs.disabled === 'true' || attrs.disabled === 'false') ? attrs.disabled : scope.$eval(attrs.disabled);
           var ngDisabledAttr = (attrs.ngDisabled === 'true' || attrs.ngDisabled === 'false') ? attrs.ngDisabled : scope.$eval(attrs.ngDisabled);
-          element.find('a').toggleClass(buttonsCtrl.activeClass, angular.equals(ngModelCtrl.$modelValue, getTrueValue()));
+
+          element.find('a').toggleClass(buttonsCtrl.activeClass, modelIsChecked(getTrueValue()));          
           element.find('a').toggleClass(buttonsCtrl.disabledClass, (disabledAttr || ngDisabledAttr) ? true : false);
         };
 
