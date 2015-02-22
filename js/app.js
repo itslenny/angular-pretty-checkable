@@ -16,4 +16,5 @@ myApp.controller('checkdemo', ['$scope',function($scope){
     html2:1
   };
   $scope.radios=['option one','option two','option three','option four','option five']
+  $scope.disableChecks=false;
 }]);
