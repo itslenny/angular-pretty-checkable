@@ -1,7 +1,7 @@
 /* @preserve
  *
  * angular-pretty-checkable
- * https://github.com/itslenny/angular-bootstrap-file-field
+ * https://github.com/itslenny/angular-pretty-checkable
  *
  * Version: 0.1.6 - 02/21/2015
  * License: MIT
