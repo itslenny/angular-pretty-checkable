@@ -47,45 +47,32 @@ bower install angular-pretty-checkable
 </pretty-checkbox>
 ```
 
+**checkbox multiple**
+
+Uses a single model for multiple checkboxes and stores the values in an array.
+
+```html
+<pretty-checkbox multiple ng-model="myModel.checks" label="'This is one'" value="'one'"></pretty-checkbox>
+<pretty-checkbox multiple ng-model="myModel.checks" label="'This is two'" value="'two'"></pretty-checkbox>
+<pretty-checkbox multiple ng-model="myModel.checks" label="'This is three'" value="'three'"></pretty-checkbox>
+```
+
 ##Configuration
 
 **States**
+
 * disabled - add disable="true"
 * checked - model matches value (for checks defaults to true)
 
 **Options**
-<table>
-  <thead>
-    <tr>
-      <th align="left" valign="top">Name</td>
-      <th align="left" valign="top">Values</td>
-      <th align="left" valign="top">Description</td>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td align="left" valign="top">value</td>
-      <td align="left" valign="top">variable or single quoted text</td>
-      <td align="left" valign="top">Required for radio<br>Used as true value for checkbox</td>
-    </tr>
-    <tr>
-      <td align="left" valign="top">label</td>
-      <td align="left" valign="top">variable or single quoted text</td>
-      <td align="left" valign="top">Optional. Defaults to value if ommited.<br><br>Set to false remove label.</td>
-    </tr>
-    <tr>
-      <td align="left" valign="top">disabled</td>
-      <td align="left" valign="top">boolean</td>
-      <td align="left" valign="top">Disables checkbox if set to true.</td>
-    </tr>
-    <tr>
-      <td align="left" valign="top">label-left</td>
-      <td align="left" valign="top">boolean</td>
-      <td align="left" valign="top">Puts the label before (left of) the control</td>
-    </tr>
-  </tbody>
-</table>
 
+| Name | Values | Description |
+|---|---|---|
+|value|variable or single quoted text|Required for radio<br>Used as true value for checkbox|
+|label|variable or single quoted text|Optional. Defaults to value if ommited.<br><br>Set to false remove label.|
+|disabled|boolean|Disables checkbox if set to true. (also supports ng-disabled)|
+|label-left|boolean|Puts the label before (left of) the control|
+|multiple|property| If provided this allows multiple checkboxes to share a single model (stores data as an array) |
 
 ##Customization
 
