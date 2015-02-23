@@ -3,7 +3,7 @@
  * angular-pretty-checkable
  * https://github.com/itslenny/angular-pretty-checkable
  *
- * Version: 0.1.6 - 02/21/2015
+ * Version: 0.1.7 - 02/22/2015
  * License: MIT
  */
 
