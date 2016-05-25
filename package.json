@@ -12,6 +12,6 @@
   "author": "Lenny Urbanowski",
   "license": "ISC",
   "dependencies": {
-    "angular": "^1.2.13",
+    "angular": "^1.2.13"
   }
 }
