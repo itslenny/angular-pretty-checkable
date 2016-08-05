@@ -5,7 +5,7 @@
   "main": "./index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/moda-schneij/angular-pretty-checkable.git"
+    "url": "https://github.com/itslenny/angular-pretty-checkable.git"
   },
   "homepage": "https://github.com/itslenny/angular-pretty-checkable",
   "style": "dist/pretty-checkable.css",
