@@ -43,7 +43,7 @@ angular.module('pretty-checkable', [])
         if(attrs.label!=='false'){        
             //set label text to label if available otherwise default to value
             var labelText = scope.$eval(attrs.label ? attrs.label : attrs.value);
-            var label = angular.element('<label>'+labelText+'</label>');
+            var label = angular.element('<label></label>').text(labelText);
         
             //add label before or after depending on label-left value 
             if(attrs.labelLeft){
@@ -122,7 +122,7 @@ angular.module('pretty-checkable', [])
         if(attrs.label!=='false'){
             //set label text to label if available otherwise default to value        
             var labelText = scope.$eval(attrs.label ? attrs.label : attrs.value);
-            var label = angular.element('<label>'+labelText+'</label>');
+            var label = angular.element('<label></label>').text(labelText);
             //add label before or after depending on label-left value 
             if(attrs.labelLeft){
               element.prepend(label);
