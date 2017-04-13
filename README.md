@@ -5,13 +5,13 @@ Pure angular pretty checkbox / radio directive. Makes it incredibly simple to ha
 
 Actions speak louder than words: [See THE DEMO here](http://itslenny.github.io/angular-pretty-checkable/).
 
-##Acknowledgements 
+## Acknowledgements 
 
 Uses the un-altered css / images from [PrettyCheckable](http://arthurgouveia.com/prettyCheckable/)
 
 Code based on [angular-ui](http://angular-ui.github.io/bootstrap/) buttons directive.
 
-##Installation
+## Installation
 
 Dependencies: Angular
 
@@ -24,7 +24,7 @@ Create an angular app and inject pretty-checkable. That's about it.
 bower install angular-pretty-checkable
 ```
 
-##Usage
+## Usage
 
 **checkbox**
 ```html
@@ -57,7 +57,7 @@ Uses a single model for multiple checkboxes and stores the values in an array.
 <pretty-checkbox multiple ng-model="myModel.checks" label="'This is three'" value="'three'"></pretty-checkbox>
 ```
 
-##Configuration
+## Configuration
 
 **States**
 
@@ -74,7 +74,7 @@ Uses a single model for multiple checkboxes and stores the values in an array.
 |label-left|boolean|Puts the label before (left of) the control|
 |multiple|property| If provided this allows multiple checkboxes to share a single model (stores data as an array) |
 
-##Customization
+## Customization
 
 The sprites can be customized simply by modifying the sprites files included here. CSS and images are the same as [PrettyCheckable](http://arthurgouveia.com/prettyCheckable/) see more details about customization on his page.
 
